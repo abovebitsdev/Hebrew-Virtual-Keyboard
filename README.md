@@ -15,11 +15,14 @@ Gravity Forms Hebrew Virtual Keyboard Add-On features:
 **Frequently Asked Questions:**
 
 **Q**: How to use this plugin?
+
 **A**: 
 1. Fill in the settings page on the Gravity Forms settings (Forms->Setting->Hebrew Virtual Keyboard Add-On).
 2. Go to Edit form and add Input or TextArea fields. 
 3. On the selected GF field go to the Advanced tab and turn on the Virtual keyboard.
 4. You can see the virtual keyboard on the Frontend.
 
+
 **Q**: Can I change the language for the virtual keyboard?
+
 **A**: No, this add-on is built for Hebrew keyboard specifically.
