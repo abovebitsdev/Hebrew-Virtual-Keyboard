@@ -1,0 +1,88 @@
+.addKeyboard div {
+    position: relative;
+}
+
+.addKeyboard div p {
+    position: absolute;
+    top: 8px;
+    cursor: pointer;
+}
+
+.addKeyboard div input {
+    direction: ltr!important;
+}
+
+.addKeyboard div p span {
+    padding: 3px 6px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: var(--global--color-primary);;
+    color: var(--global--color-background);
+}
+
+.addKeyboard div p img {
+    max-width: 40px;
+}
+
+.ui-keyboard div {
+    background-color: var(--global--color-primary);
+}
+
+.ui-keyboard-button,
+.ui-keyboard-button:active {
+    height: auto;
+    min-width: 2em;
+    width: auto;
+    margin: .1em;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 1.43;
+    padding: 2px;
+    -moz-user-focus: ignore;
+    border: 1px solid var(--global--color-background);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    color: inherit;
+}
+
+.ui-keyboard-button:active span {
+    color: var(--global--color-background);
+}
+
+.ui-keyboard-keyset {
+    padding: 5px;
+}
+
+.ui-keyboard-button:hover {
+    border: 1px solid var(--global--color-background);
+}
+
+.ui-keyboard-button:hover span {
+    color: var(--global--color-background);
+}
+
+.ui-keyboard-space {
+    min-width: 15em;
+}
+
+@media (max-width: 768px) {
+    .ui-keyboard-button {
+        min-width: 1em;
+        line-height: 1.15;
+    }
+    .ui-keyboard-space {
+        min-width: 10em;
+    }
+}
+
+@media (max-width: 576px) {
+    .ui-keyboard-button {
+        font-size: 15px;
+    }
+}
