@@ -2,14 +2,19 @@
     position: relative;
 }
 
-.addKeyboard div p {
-    position: absolute;
-    top: 8px;
-    cursor: pointer;
+.gform_wrapper .addKeyboard div input[type="text"],
+.gform_wrapper .addKeyboard div textarea {
+    direction: ltr!important;
+    padding: 5px!important;
+    line-height: 1.5;
 }
 
-.addKeyboard div input {
-    direction: ltr!important;
+.addKeyboard div p {
+    position: absolute;
+    top: 7px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
 
 .addKeyboard div p span {
@@ -19,8 +24,19 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    background-color: var(--global--color-primary);;
-    color: var(--global--color-background);
+}
+
+.addKeyboard div p span.white {
+    color: #28303d;
+    background-color: #fff;
+    border: 1px solid #28303d;
+    font-weight: 700;
+}
+
+.addKeyboard div p span.black {
+    background-color: #28303d;
+    color: #fff;
+    font-weight: 500;
 }
 
 .addKeyboard div p img {
@@ -28,11 +44,31 @@
 }
 
 .ui-keyboard div {
-    background-color: var(--global--color-primary);
+ border-radius: 7px;
+ -webkit-border-radius: 7px;
+ -moz-border-radius: 7px;
+ -ms-border-radius: 7px;
+ -o-border-radius: 7px;
 }
 
-.ui-keyboard-button,
-.ui-keyboard-button:active {
+.ui-keyboard.black div {
+    background-color: #28303d;
+}
+
+.ui-keyboard.white div {
+    background-color: #fff;
+    border: 1px solid #28303d;
+    padding: 5px;
+    line-height: 0;
+}
+
+.ui-keyboard-preview-wrapper input,
+.ui-keyboard-preview-wrapper textarea {
+    padding: 10px!important;
+}
+
+.ui-keyboard button.ui-keyboard-button,
+.ui-keyboard button.ui-keyboard-button:active {
     height: auto;
     min-width: 2em;
     width: auto;
@@ -51,38 +87,48 @@
     color: inherit;
 }
 
-.ui-keyboard-button:active span {
-    color: var(--global--color-background);
+.ui-keyboard.white button.ui-keyboard-button,
+.ui-keyboard.white button.ui-keyboard-button:active {
+    border: 1px solid #28303d;
+    background-color: #fff;
+    color: #28303d;
 }
 
-.ui-keyboard-keyset {
-    padding: 5px;
+.ui-keyboard.white button.ui-keyboard-button:hover {
+    border: 1px solid #fff;
+    background-color: #28303d;
+    color: #fff;
 }
 
-.ui-keyboard-button:hover {
-    border: 1px solid var(--global--color-background);
+.ui-keyboard.black button.ui-keyboard-button,
+.ui-keyboard.black button.ui-keyboard-button:active {
+    border: 1px solid #fff;
+    background-color: #28303d;
+    color: #fff;
 }
 
-.ui-keyboard-button:hover span {
-    color: var(--global--color-background);
+.ui-keyboard.black button.ui-keyboard-button:hover {
+    border: 1px solid #28303d;
+    background-color: #fff;
+    color: #28303d;
 }
 
-.ui-keyboard-space {
+.ui-keyboard button.ui-keyboard-space {
     min-width: 15em;
 }
 
 @media (max-width: 768px) {
-    .ui-keyboard-button {
+    .ui-keyboard button.ui-keyboard-button {
         min-width: 1em;
         line-height: 1.15;
     }
-    .ui-keyboard-space {
+    .ui-keyboard button.ui-keyboard-space {
         min-width: 10em;
     }
 }
 
 @media (max-width: 576px) {
-    .ui-keyboard-button {
+    .ui-keyboard button.ui-keyboard-button {
         font-size: 15px;
     }
 }

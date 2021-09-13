@@ -4,16 +4,17 @@ document.addEventListener('DOMContentLoaded', openKeyboard, false); // Waiting u
 
 function appendKeyboards() { // Creates function
     const inputsWithKeyboard = document.querySelectorAll(".addKeyboard div input, .addKeyboard div textarea");  // Gets all inputs with keyboard classes
-    inputsWithKeyboard.forEach(function(element) { // Foreach element loop
+    inputsWithKeyboard.forEach((element) => { // Foreach element loop
       const inputWidth = element.offsetWidth; // Takes input width in keyboard class li container
       const typeIcon = element.dataset.type.toLowerCase(); // Takes type of input keyboard button (text/image)
+      const theme = element.dataset.theme.toLowerCase(); // Takes theme color
       const paragraph = document.createElement("p"); // Creates empty p element
       if(typeIcon == "text") {
         const iconText = element.dataset.text; // Takes text from data attribute
-        paragraph.innerHTML = "<span title='"+ element.dataset.title +"'>" + iconText + "</span>"; // Appends text to paragraph
+        paragraph.innerHTML = `<span class='${theme}' title='${element.dataset.title}'>${iconText}</span>`; // Appends text to paragraph
       } else if(typeIcon == "image") {
         const iconPath = element.dataset.image; // Takes image path from data attribute
-        paragraph.innerHTML = "<img src='" + iconPath + "' title='"+ element.dataset.title +"' alt='Virtual keyboard icon'>"; // Appends path to src image into paragraph
+        paragraph.innerHTML = `<img class='${theme}' src='${iconPath}' title='${element.dataset.title}' alt='Virtual keyboard icon'>`; // Appends path to src image into paragraph
       }
       element.closest(".addKeyboard div").appendChild(paragraph); // Appends paragraph element to div
       const paragraphWidth = paragraph.offsetWidth; // Takes width of new paragraph
@@ -71,6 +72,8 @@ function openKeyboard() { // Creates function
 
 function positionKeyboardPopup(inputID) { // Creates function
   const inputCords = document.getElementById(inputID).getBoundingClientRect(); // Gets cordinates of clicked input or textarea
+  const theme = document.querySelector(".addKeyboard div input").dataset.theme.toLowerCase(); // Takes theme color
   document.querySelector(".ui-keyboard").style.left = inputCords.left + scrollX + "px";  // Adds position on left
   document.querySelector(".ui-keyboard").style.top = inputCords.top + scrollY + "px";  // Adds position on top
+  document.querySelector(".ui-keyboard").classList.add(theme);  // Adds theme color
 };

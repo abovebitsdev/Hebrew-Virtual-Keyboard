@@ -97,13 +97,13 @@ class GFHebrewVirtualKeyboardAddOn extends GFAddOn
 
 	function appendIcon($field_content, $field) // Adds data attributes  
 	{
-		$type = $this->get_plugin_setting('textOrIcon');
-		$text = $this->get_plugin_setting('buttonText');
+		$type = $this->get_plugin_setting('textOrIcon') ? $this->get_plugin_setting('textOrIcon') : "Text";
+		$text = $this->get_plugin_setting('buttonText') ? $this->get_plugin_setting('buttonText') : "א ב ג";
 		$path = $this->get_plugin_setting('buttonImage');
 		$title = $this->get_plugin_setting('buttonHoverTitle');
-		//var_dump($field);
+		$theme = $this->get_plugin_setting('themeColor') ? $this->get_plugin_setting('themeColor') : "white";
 		if ($field->keyboardField == 'true') {
-			return str_replace('name=', "data-type='" . $type . "' data-Text='" . $text . "' data-Title='" . $title . "' data-Image='" . $path . "' name=", $field_content);
+			return str_replace('name=', "data-type='" . $type . "' data-Text='" . $text . "' data-Theme='" . $theme . "' data-Title='" . $title . "' data-Image='" . $path . "' name=", $field_content);
 		}
 		return $field_content;
 	}
@@ -119,7 +119,7 @@ class GFHebrewVirtualKeyboardAddOn extends GFAddOn
 	{
 		return array(
 			array(
-				'title'  => esc_html__('Hebrew Keyboard Settings', 'hebrewVirtualKeyboard'),
+				'title'  => esc_html__('Hebrew Virtual Keyboard Settings', 'hebrewVirtualKeyboard'),
 				'fields' => array(
 					array(
 						'label'   => esc_html__('What should be displayed on the button', 'hebrewVirtualKeyboard'),
@@ -133,6 +133,24 @@ class GFHebrewVirtualKeyboardAddOn extends GFAddOn
 							),
 							array(
 								'label' => esc_html__('Image', 'hebrewVirtualKeyboard'),
+							),
+						),
+					),
+					array(
+						'label'   => esc_html__('Choose theme color', 'hebrewVirtualKeyboard'),
+						'type'    => 'select',
+						'name'    => 'themeColor',
+						'tooltip' => esc_html__('Pick the theme color for the keyboard. If "custom" selected, no color styles are applied.', 'hebrewVirtualKeyboard'),
+						'default_value' => 'White',
+						'choices' => array(
+							array(
+								'label' => esc_html__('White', 'hebrewVirtualKeyboard'),
+							),
+							array(
+								'label' => esc_html__('Black', 'hebrewVirtualKeyboard'),
+							),
+							array(
+								'label' => esc_html__('Custom', 'hebrewVirtualKeyboard'),
 							),
 						),
 					),

@@ -3,7 +3,7 @@ Contributors: abovebits
 Tags: Input, TextArea, Virtual, Keyboard, Hebrew, GF, Gravity, Forms, Fields
 Requires at least: 4.9 or higher
 Tested up to: 5.8
-Stable tag: 1.0
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPLv2 or later (or compatible)
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -43,7 +43,7 @@ No, this add-on is built for Hebrew keyboard specifically.
 1. Front-end: virtual keyboard button with HTML tag - "Title".
 2. Front-end example of virtual keyboard.
 3. Advanced tab with the checkbox to enable/disable the virtual keyboard in the input or text area. 
-4. Current settings screen. With the radio button you may choose what to display on the desired button - a text or image. The next two fields are text and path to the desired image - depends on which radio button selection you make. The last field is the tooltip for the desired button.
+4. Current settings screen. With the radio button you may choose what to display on the desired button - a text or image. You can also pick white/black or custom theme. The next two fields are text and path to the desired image - depends on which radio button selection you make. The last field is the tooltip for the desired button.
 
 == Installation ==
 
@@ -54,6 +54,11 @@ This section describes how to install the plugin and get it working.
 4. You are done!
 
 == Changelog ==
+
+= 1.0.1 =
+* Added theme color picker.
+* Minor bug fixes.
+* Сode refactoring.
 
 = 1.0 =
 * Initial release.
