@@ -14,12 +14,22 @@ function appendKeyboards() { // Creates function
         paragraph.innerHTML = `<span class='${theme}' title='${element.dataset.title}'>${iconText}</span>`; // Appends text to paragraph
       } else if(typeIcon == "image") {
         const iconPath = element.dataset.image; // Takes image path from data attribute
-        paragraph.innerHTML = `<img class='${theme}' src='${iconPath}' title='${element.dataset.title}' alt='Virtual keyboard icon'>`; // Appends path to src image into paragraph
+		const iconImage = new Image();
+		iconImage.onload = function(){
+			resizeKeyboards();
+		}
+		iconImage.src = iconPath;
+		iconImage.classList.add(theme);
+		iconImage.title = element.dataset.title;
+		iconImage.alt = 'Virtual keyboard icon';
+		paragraph.appendChild(iconImage); // Appends path to src image into paragraph
       }
       element.closest(".addKeyboard div").appendChild(paragraph); // Appends paragraph element to div
       const paragraphWidth = paragraph.offsetWidth; // Takes width of new paragraph
       element.closest(".addKeyboard div").querySelector("p").style.left = inputWidth - paragraphWidth - 10 + "px"; // Moves created paragraph element inside div
-      element.style.paddingRight = paragraphWidth + 20 + "px"; // Padding right into input or textarea by element width
+      element.style.paddingRight = paragraphWidth + 10 + "px"; // Padding right into input or textarea by element width
+	  
+	  window.addEventListener('resize', resizeKeyboards, false);
     })
 };
 
@@ -47,7 +57,7 @@ function openKeyboard() { // Creates function
             "{space} {alt} {accept}"
           ],
           "alt":[
-            "{empty} {empty} {empty} {empty} \u20aa {empty} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {b}",
+            "\u05b1 {empty} {empty} {empty} \u20aa {empty} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {b}",
             "{t} {empty} {empty} \u20ac {empty} {empty} {empty} \u05f0 {empty} {empty} {empty} {empty} {enter}",
             "{empty} {empty} {empty} {empty} {empty} \u05f2 \u05f1 {empty} {empty} {empty} {empty} {empty} {empty}",
             "{s} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {empty} {s}",
@@ -77,3 +87,15 @@ function positionKeyboardPopup(inputID) { // Creates function
   document.querySelector(".ui-keyboard").style.top = inputCords.top + scrollY + "px";  // Adds position on top
   document.querySelector(".ui-keyboard").classList.add(theme);  // Adds theme color
 };
+
+function resizeKeyboards(){
+	const inputsWithKeyboard = document.querySelectorAll(".addKeyboard div input, .addKeyboard div textarea");  // Gets all inputs with keyboard classes
+    inputsWithKeyboard.forEach((element) => { // Foreach element loop
+      const inputWidth = element.offsetWidth; // Takes input width in keyboard class li container
+	  const paragraph = element.parentNode.querySelector('p'); // Takes p element
+	  if(!paragraph) return;
+	  const paragraphWidth = paragraph.offsetWidth; // Takes width of paragraph
+	  if(!paragraphWidth) return;
+	  paragraph.style.left = inputWidth - paragraphWidth - 10 + "px"; // Updated paragraph position
+    })
+}

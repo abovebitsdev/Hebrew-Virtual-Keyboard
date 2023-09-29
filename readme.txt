@@ -2,8 +2,8 @@
 Contributors: abovebits
 Tags: Input, TextArea, Virtual, Keyboard, Hebrew, GF, Gravity, Forms, Fields
 Requires at least: 4.9 or higher
-Tested up to: 5.8
-Stable tag: 1.0.2
+Tested up to: 6.3
+Stable tag: 1.0.4
 Requires PHP: 7.0
 License: GPLv2 or later (or compatible)
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,12 @@ This section describes how to install the plugin and get it working.
 4. You are done!
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed small UI bugs
+
+= 1.0.3 =
+* Fixed "Show virtual keyboard" checkbox visibility for the teaxtarea fields in the WP Admin dashboard.
 
 = 1.0.2 =
 * Improved stability of the plugin.

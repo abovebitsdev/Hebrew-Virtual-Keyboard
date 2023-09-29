@@ -11,19 +11,31 @@
 
 .addKeyboard div p {
     position: absolute;
-    top: 7px;
+    top: 0;
     cursor: pointer;
     margin: 0;
     padding: 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+	flex-wrap: nowrap;
 }
 
 .addKeyboard div p span {
     padding: 3px 6px;
     border-radius: 5px;
+    font-size: 16px;
+    line-height: 1;
+	text-wrap: nowrap;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.form_editor_fields_container .addKeyboard div p {
+    top: 9px;
 }
 
 .addKeyboard div p span.white {
